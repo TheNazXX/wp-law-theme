@@ -835,13 +835,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-testimonial .testimony-slide figure {
   margin-bottom: 10px;
-  display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
-  display: inline;
 }
 #fh5co-testimonial .testimony-slide figure img {
   width: 100px;
+  height: 100px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;

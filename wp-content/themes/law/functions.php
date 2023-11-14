@@ -19,6 +19,7 @@ function law_scripts() {
 	wp_enqueue_style( 'law-flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
 	
 	wp_enqueue_style( 'law-index-style', get_template_directory_uri() . '/assets/css/index.css');
+	wp_enqueue_style( 'law-custom-style', get_template_directory_uri() . '/assets/css/custom.css');
 
 	wp_enqueue_script( 'law-modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.6.2.min.js', [], '' , true);
 	wp_enqueue_script( 'law-respond', get_template_directory_uri() . '/assets/js/respond.min.js', [], '' , true);
