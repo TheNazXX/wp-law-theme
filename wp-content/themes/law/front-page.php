@@ -6,4 +6,7 @@
 <?php echo 'Sorry, no posts were found.'; ?>
 <?php endif; ?>
 
+
+
+
 <?php get_footer()?>

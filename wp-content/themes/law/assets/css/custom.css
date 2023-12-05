@@ -4,9 +4,18 @@
 }
 
 #fh5co-practice-title,
-#fh5co-testimonials-title{
+#fh5co-testimonials-title,
+#fh5co-blog-title,
+#fh5co-about-title
+{
   margin: 0 auto 5em;
   max-width: 780px;
+}
+
+#fh5co-testimonials .testimony-slide img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 
@@ -99,4 +108,20 @@
 
   padding: 18px 36px;
   border-radius: 30px;
+}
+
+
+.fw_form_fw_form .field-text input:active, .fw_form_fw_form .field-text input:focus,
+.fw_form_fw_form .field-textarea textarea:active, .fw_form_fw_form .field-textarea textarea:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #F95959;
+}
+
+.form-alert{
+  display: none;
+}
+
+.contact-form-btn{
+  margin-bottom: 16px;  
 }

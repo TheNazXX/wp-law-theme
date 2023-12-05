@@ -4,6 +4,11 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+
+require get_template_directory() . '/inc/custom-post-type.php';
+require_once get_template_directory() . '/inc/metaboxes-core.php';
+require_once get_template_directory() . '/inc/custom-metaboxes.php';
+
 function law_scripts() {
 	wp_enqueue_style( 'law-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'law-style', 'rtl', 'replace' );
@@ -39,6 +44,8 @@ function law_scripts() {
 	wp_enqueue_script( 'law-jquery-magnific-popup', get_template_directory_uri() . '/assets/js/jquery.magnific-popup.min.js', [], '' , true);
 	wp_enqueue_script( 'law-magnific-popup-options', get_template_directory_uri() . '/assets/js/magnific-popup-options.js', [], '' , true);
 	wp_enqueue_script( 'law-index', get_template_directory_uri() . '/assets/js/index.js', [], '' , true);
+	
+	wp_localize_script('law-index', 'lawData', ['themePath' => get_template_directory_uri()]); // Передаём в указаный скрипт пусть к теме
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

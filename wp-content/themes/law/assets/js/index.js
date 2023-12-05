@@ -280,6 +280,46 @@
 
 	};
 
+	$('.fw_form_fw_form').on('submit', function(e){
+		e.preventDefault();
+		var	$this = $(this);
+		var btn = $this.find('button');
+		var data = $this.serialize();
+		var formAlert = $('.form-alert');
+		var loader = '<img id="loader" class="loader" src="' + lawData.themePath +'/assets/images/loader.gif" >';
+
+		 $.ajax({
+			type: 'POST',
+			data: data,
+			beforeSend: function(){
+				btn.attr('disabled', true);
+				formAlert.removeClass('alert-success alert-danger').empty();
+				btn.after(loader);
+			},
+			success: function(response){
+				formAlert.fadeIn(300, function(){
+
+				
+					if(response.success){
+						$this[0].reset();
+						formAlert.addClass('alert-success').text('Success!');
+					}else{
+						formAlert.addClass('alert-danger').text('Something went wrong');
+					}
+					
+
+				});
+
+				$('#loader').fadeOut(300);
+				btn.attr('disabled', false);
+
+			},
+			error: function(){
+				alert("Error");
+			}
+		 })
+	});
+
 	
 	$(function(){
 		mobileMenuOutsideClick();

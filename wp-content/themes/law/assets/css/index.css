@@ -559,6 +559,11 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 40px;
 }
 
+#fh5co-consult > .fw-container-fluid{
+  width: 100%;
+  padding: 0;
+}
+
 .services {
   position: relative;
   padding: 30px;
@@ -878,6 +883,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-staff img {
   width: 200px;
+  height: 200px;
   margin-bottom: 20px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
