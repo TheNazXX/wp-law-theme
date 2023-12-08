@@ -1,40 +1,58 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package law
- */
+<?php get_header(); ?>
 
-get_header();
+<?php if ( ! defined( 'FW' ) ) {
+	die( 'Forbidden' );
+
+} ?>
+
+
+<div id="fh5co-blog" class="fh5co-bg-section">
+  <div class="container">
+
+    <div class="blog-inner">
+      <?php 
+   
+
+      switch_to_locale('en_US');
+
+    if(have_posts()) : while(have_posts()) : the_post();
+
 ?>
 
-	<main id="primary" class="site-main">
+      <div class="fh5co-blog animate-box">
+        <a href="<?php echo esc_url(the_permalink())?>">
+          <?php the_post_thumbnail()?>
+        </a>
+        <div class="blog-text">
+          <span class="comment"><a href=""><?php echo get_comments_number()?><i
+                class="icon-speech-bubble"></i></a></span>
+          <h3><a href="<?php echo esc_url(the_permalink())?>"><?php the_title()?></a></h3>
+          <p><?php the_content()?></p>
+        </div>
+      </div>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'law' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'law' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
+      <?php 
+			
+			
+			if(comments_open() || get_comments_number()){
 				comments_template();
-			endif;
+			};
+			
+			
+			
+			?>
 
-		endwhile; // End of the loop.
-		?>
 
-	</main><!-- #main -->
+      <?php
+  endwhile; endif;
+?>
 
-<?php
-get_sidebar();
-get_footer();
+    </div>
+
+  </div>
+</div>
+
+
+
+<?php get_footer(); ?>

@@ -34,4 +34,6 @@
           </div>
         </div>
       </nav>
+
+      <?php echo get_search_form()?>
     </header>

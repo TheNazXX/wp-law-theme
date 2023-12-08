@@ -1,53 +1,49 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package law
- */
+<?php get_header(); ?>
 
-get_header();
+<?php if ( ! defined( 'FW' ) ) {
+	die( 'Forbidden' );
+} ?>
+
+
+<div id="fh5co-blog" class="fh5co-bg-section">
+  <div class="container">
+
+    <div class="blog-inner">
+      <?php 
+   
+
+      switch_to_locale('en_US');
+
+    if(have_posts()) : while(have_posts()) : the_post();
+
 ?>
 
-	<main id="primary" class="site-main">
+      <div class="col-lg-4 col-md-4">
+        <div class="fh5co-blog animate-box">
+          <a href="<?php echo esc_url(the_permalink())?>">
+            <?php the_post_thumbnail()?>
+          </a>
+          <div class="blog-text">
+            <span class="posted_on"><?php the_time('M. jS')?></span>
+            <span class="comment"><a href=""><?php echo get_comments_number()?><i
+                  class="icon-speech-bubble"></i></a></span>
+            <h3><a href="<?php echo esc_url(the_permalink())?>"><?php the_title()?></a></h3>
+            <p><?php the_excerpt()?></p>
+            <a href="<?php echo esc_url(the_permalink())?>" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
 
-		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'law' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+      <?php
+  endwhile; endif;
+?>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+    </div>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+  </div>
+</div>
 
-			endwhile;
 
-			the_posts_navigation();
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

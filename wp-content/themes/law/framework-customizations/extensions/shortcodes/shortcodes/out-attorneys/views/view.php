@@ -25,7 +25,7 @@ $count = (int)$atts['posts_count'] ? $atts['posts_count'] : 1;
     <div class="fh5co-staff">
       <?php the_post_thumbnail()?>
       <h3><?php the_title()?></h3>
-      <strong class="role"></strong>
+      <strong class="role"><?php esc_html_e(get_post_meta(get_the_ID(), 'wp_attorneys', true))?></strong>
       <p><?php the_content() ?></p>
       <ul class="fh5co-social-icons">
         <li><a href="#"><i class="icon-facebook"></i></a></li>

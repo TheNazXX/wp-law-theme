@@ -1,38 +1,41 @@
 <?php
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package law
- */
-
-get_header();
+	get_header();
 ?>
 
-<main id="primary" class="site-main">
 
-  <?php
-		while ( have_posts() ) :
-			the_post();
+<aside id="fh5co-hero" class="js-fullheight">
+  <div class="flexslider js-fullheight">
+    <ul class="slides">
+      <li style="background-image: url(<?php echo get_the_post_thumbnail_url()?>);">
+        <div class="overlay-gradient"></div>
+        <div class="container">
+          <div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
+            <div class="slider-text-inner desc">
+              <h2 class="heading-section">Contact Us</h2>
+              <p class="fh5co-lead">Designed with <i class="icon-heart3"></i> by the fine folks at <a
+                  href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>
 
-			get_template_part( 'template-parts/content', 'page' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
 
-		endwhile; // End of the loop.
-		?>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php  the_content();?>
+      <?php endwhile; else : ?>
+      <?php echo 'Sorry, no posts were found.'; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+</div>
 
-</main><!-- #main -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php 
+	get_footer();
+?>

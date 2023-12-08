@@ -536,9 +536,6 @@ a {
 	color: #4169e1;
 }
 
-a:visited {
-	color: #800080;
-}
 
 a:hover,
 a:focus,
@@ -745,11 +742,6 @@ textarea {
 --------------------------------------------- */
 .sticky {
 	display: block;
-}
-
-.post,
-.page {
-	margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {

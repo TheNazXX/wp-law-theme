@@ -24,6 +24,7 @@ function custom_metaboxes($meta_boxes){
 		)
   ];
 
+
   return $meta_boxes;
 };
 
